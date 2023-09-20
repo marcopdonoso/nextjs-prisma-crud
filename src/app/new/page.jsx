@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation'
 const NewPage = () => {
 	const router = useRouter()
 
-	const onSubmit = async e => {
+	const handleSubmit = async e => {
 		e.preventDefault()
 		const title = e.target.title.value
 		const description = e.target.description.value
@@ -18,13 +18,12 @@ const NewPage = () => {
 		})
 
 		const data = await response.json()
-		console.log(data)
 		router.push('/')
 	}
 
 	return (
 		<div className="h-screen flex justify-center items-center">
-			<form className="bg-slate-800 p-10 w-1/2" onSubmit={onSubmit}>
+			<form className="bg-slate-800 p-10 w-1/2" onSubmit={handleSubmit}>
 				<label htmlFor="title" className="font-bold text-sm">
 					Título de la tarea
 				</label>
